@@ -1,0 +1,29 @@
+import '@testing-library/jest-dom';
+import { getUser, getUsuarioActivo } from "../../bases/05-funciones";
+
+describe('pruebas al archivo 05-funciones.js', () => {
+
+  test('getUsuario debe regresar un objeto', () => {
+      const user = {
+        uid: 'abc123',
+        username: 'El hdsptm',
+      }  
+
+      const usuario = getUser();
+
+      expect(usuario).toEqual(user);
+  });
+
+  test('getUsuarioActivo debe regresar el uid y el nombre', () => {
+        const nombre = 'Max';
+        const usuario = {
+            uid: 'abc567',
+            username: nombre
+        }
+        const usuarioActivo = getUsuarioActivo(nombre);
+
+        expect(usuarioActivo).toEqual(usuario);
+        
+  });
+  
+});

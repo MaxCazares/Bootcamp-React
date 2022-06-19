@@ -1,0 +1,57 @@
+import '@testing-library/jest-dom';
+import ToDoReducer from '../../../components/08-useReducer/ToDoReducer';
+import demosToDos from '../../fixtures/demoToDos';
+
+describe('Pruebas en ToDoReducer', () => {
+
+    test('Debe retornar el estado por defecto', () => {
+
+        const state = ToDoReducer(demosToDos, {});
+        expect(state).toEqual(demosToDos);
+
+    });    
+
+    test('Debe agregar un ToDo', () => {
+
+        const newToDo = {
+            id: 3,
+            desc: 'Aprender Git',
+            done: false,
+        };
+
+        const action = {
+            type: 'add',
+            payload: newToDo,
+        };
+
+        const newToDoList = ToDoReducer(demosToDos, action);
+        expect(newToDoList.length).toBe(3);
+        expect(newToDoList).toEqual([...demosToDos, newToDo]);
+
+    });    
+
+    test('Debe borrar un ToDo', () => {
+      
+        const action = {
+            type: 'delete',
+            payload: 2,
+        };
+
+        const newToDoList = ToDoReducer(demosToDos, action);
+        expect(newToDoList.length).toBe(1);
+
+    });    
+
+    test('Debe hacer toggle de un ToDo', () => {
+
+        const action = {
+            type: 'toggle',
+            payload: 2,
+        };
+
+        const newToDoList = ToDoReducer(demosToDos, action);
+        expect(newToDoList[1].done).toBe(true);
+
+    });    
+
+});

@@ -1,0 +1,21 @@
+import '@testing-library/jest-dom';
+import { getSaludo } from "../../bases/02-template-string";
+
+
+describe('pruebas en 02-template-string.js', () => {
+    test('getSaludo debe de retornar "Hola, soy Goku"', () => {
+        const nombre = 'Goku';
+        const saludo = getSaludo(nombre);
+
+        expect(saludo).toBe('Hola, soy ' + nombre);
+        
+    });
+
+    test('getSaludo debe de regresar Gerardo si no hay argumento en el nombre', () => {
+        const saludo = getSaludo();
+
+        expect(saludo).toBe('Hola, soy Gerardo');
+    });
+    
+    
+});

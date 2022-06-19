@@ -1,0 +1,41 @@
+import React from 'react';
+import {shallow} from 'enzyme';
+import PrimeraApp from '../PrimeraApp';
+import '@testing-library/jest-dom';
+
+// import {render} from '@testing-library/react';
+describe('Pruebas en <PrimeraApp />', () => {
+    
+    // test('Debe mostrar el mensaje Hola Mundo', () => {
+        
+    //     const saludo = 'Hola mundo';
+    //     const {getByText} = render(<PrimeraApp saludo={saludo} />);
+
+    //     expect(getByText(saludo)).toBeInTheDocument();
+
+    // });
+
+    test('Debe mostrar <PrimeraApp /> correctamente', () => {
+        
+        const saludo = 'Hola Mundo';
+        const wrapper = shallow(<PrimeraApp saludo={saludo}/>);
+
+        expect(wrapper).toMatchSnapshot();
+
+    });
+
+    test('debe de mostrar el subtitulo enviado pro props', () => {
+      
+        const saludo = 'Hola Mundo';
+        const subtitulo = 'soy un subtitulo';
+        const wrapper = shallow(<PrimeraApp saludo={saludo} subtitulo={subtitulo}/>);
+
+        const textoParrafo = wrapper.find('p').text();
+        
+        expect(textoParrafo).toBe(subtitulo);
+
+    });
+    
+    
+    
+});

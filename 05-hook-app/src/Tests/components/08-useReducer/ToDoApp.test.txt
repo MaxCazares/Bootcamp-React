@@ -1,0 +1,44 @@
+import React from 'react';
+import {shallow, mount} from 'enzyme';
+import '@testing-library/jest-dom';
+import {act} from '@testing-library/react';
+
+import ToDoApp from '../../../components/08-useReducer/ToDoApp';
+import demosToDos from '../../fixtures/demoToDos';
+
+
+describe('Pruebas en <ToDoApp/>', () => {
+
+    const wrapper = shallow(<ToDoApp/>);
+
+    Storage.prototype.setItem = jest.fn(() => {});
+
+    test('Debe mostrarse correctamente', () => {
+
+        expect(wrapper).toMatchSnapshot();
+    });    
+
+    test('Debe agregar un ToDo', () => {
+
+        const wrapper = mount(<ToDoApp/>);
+
+        act(() => {
+            wrapper.find('ToDoAdd').prop('handleAddToDo')(demosToDos[0]);
+            wrapper.find('ToDoAdd').prop('handleAddToDo')(demosToDos[1]);            
+        });
+
+        expect(wrapper.find('h1').text().trim()).toBe(`ToDoApp (${demosToDos.length})`);
+        expect(localStorage.setItem).toHaveBeenCalledTimes(2);
+
+    });   
+
+    test('Debe eliminar un ToDo', () => {
+
+        wrapper.find('ToDoAdd').prop('handleAddToDo')(demosToDos[0]);
+        wrapper.find('ToDoList').prop('handleDelete')(demosToDos[0].id);
+
+        expect(wrapper.find('h1').text().trim()).toBe(`ToDoApp (0)`);
+
+    });    
+
+});

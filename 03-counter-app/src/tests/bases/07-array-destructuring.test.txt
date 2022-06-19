@@ -1,0 +1,12 @@
+import '@testing-library/jest-dom'
+import { retornarArreglo } from "../../bases/07-array-destructuring";
+
+describe('pruebas al archivo 07-array', () => {
+  test('debe regresar un string y un numero', () => {
+        const a = ['abc', 123];
+        const arreglo = retornarArreglo();
+
+        expect(arreglo).toEqual(a);
+  });
+  
+});

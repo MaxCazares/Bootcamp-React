@@ -1,0 +1,11 @@
+
+describe('Pruebas en demos.test.js', () => {
+    
+    test('los string deben de ser iguales', () => {
+    
+        const m1 = 'Hola Mundo';
+        const m2 = `Hola Mundo`;
+    
+        expect(m1).toBe(m2);
+    });
+});

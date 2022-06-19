@@ -1,0 +1,61 @@
+import {act, renderHook} from '@testing-library/react-hooks';
+import '@testing-library/jest-dom'
+import useForm from '../../hooks/useForm';
+
+describe('Pruebas en <useForm/>', () => {
+
+    const initialState = {
+        name: 'Max',
+        email: 'max@gmail.com',
+    }
+
+    test('Debe regresar un formulario por defecto', () => {
+
+        const {result} = renderHook(() => useForm(initialState));
+        const [values, handleInputchange, reset] = result.current;
+
+        expect(values).toEqual(initialState);
+        expect(typeof handleInputchange).toBe('function');
+        expect(typeof reset).toBe('function');
+    });
+
+    test('Debe de ccambiar el valor del formulario (cambiar el name)', () => {
+        
+        const {result} = renderHook(() => useForm(initialState));
+        const [, handleInputchange] = result.current;
+
+        act(() => {
+            handleInputchange({
+                target: {
+                    name: 'name',
+                    value: 'Gerardo',
+                }
+            });
+        });
+
+        const [values] = result.current;
+        expect(values).toEqual({...initialState, name: 'Gerardo'});
+
+    });
+        
+    test('Debe re-establecer el formulario con RESET', () => {
+
+        const {result} = renderHook(() => useForm(initialState));
+        const [, handleInputchange, reset] = result.current;
+
+        act(() => {
+            handleInputchange({
+                target: {
+                    name: 'name',
+                    value: 'Gerardo',
+                }
+            });
+            reset();
+        });
+
+        const [values] = result.current;
+        expect(values).toEqual(initialState);
+
+    });   
+
+});

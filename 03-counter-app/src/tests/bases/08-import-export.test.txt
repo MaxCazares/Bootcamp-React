@@ -1,0 +1,35 @@
+import '@testing-library/jest-dom';
+
+import { getHeroesById, getHeroesByOwner } from "../../bases/08-import-export";
+import heroes from '../../bases/data/heroes';
+
+describe('pruebas a los heroes', () => {
+    test('debe regresar los heroes por id', () => {
+        const id = 2;
+        const heroe = getHeroesById(id);
+
+        expect(id).toBe(heroe.id);
+    });
+
+    test('debe regresar undefined si el héroe no existe', () => {
+        const id = 20;
+        const heroe = getHeroesById(id);        
+
+        expect(heroe).toBe(undefined);
+    });
+    
+    test('debe regresar un arreglo con los heroes de DC', () => {
+        const owner = 'DC';
+        const heroesDC = getHeroesByOwner(owner);
+        const heroesDCData = heroes.filter(h => h.owner === owner);
+    
+        expect(heroesDC).toEqual(heroesDCData);
+    });
+    
+    test('debe regresar un arreglo con los heroes de marvel', () => {
+        const heoresMarvel = getHeroesByOwner('Marvel');
+
+        expect(heoresMarvel.length).toBe(2);
+    });    
+
+});

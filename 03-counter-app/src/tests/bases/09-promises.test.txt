@@ -1,0 +1,33 @@
+import '@testing-library/jest-dom'
+import { getHeroesByIdAsync } from "../../bases/09-promises";
+import heroes from '../../bases/data/heroes';
+
+describe('pruebas con promises', () => {
+    test('debe regresar un heroe async', (done) => {
+       
+        const id = 1;
+
+        getHeroesByIdAsync(id)            
+            .then(heroe => {
+                // console.log(heroe);
+                // console.log(heroes[1]);
+                expect(heroe).toBe(heroes[0]);
+                done();
+            })
+            .catch(done)
+            
+    });
+
+    test('debe obtener un error si el heroe por id no existe', (done) => {
+        
+        const id = 10;
+        getHeroesByIdAsync(id)
+            .catch(error => {
+                console.log(error);
+                expect(error).toBe('iudaaaa, no se encontro el heroe');            
+                done();
+            })
+    });
+    
+    
+});

@@ -1,0 +1,13 @@
+import '@testing-library/jest-dom'
+import { getGift } from '../../bases/11-async-await'
+
+describe('Pruebas con async y fetch', () => {
+    test('debe retornar el url de un gift', async () => {
+
+        const url = await getGift();
+        console.log(url);
+
+        expect(url.includes('https://')).toEqual(true);
+
+    });    
+});
