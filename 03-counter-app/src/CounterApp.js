@@ -19,9 +19,9 @@ const CounterApp = ({ value }) => {
             <h1>CounterApp</h1>
             <h2>{counter}</h2>
 
-            <button onClick={incrementarValue}>+1</button>
-            <button onClick={resetValue}>Reset</button>
             <button onClick={deincrementarValue}>-1</button>
+            <button onClick={resetValue}>Reset</button>
+            <button onClick={incrementarValue}>+1</button>
         </Fragment>
     );
 }

@@ -48,7 +48,7 @@ describe('Pruebas a <CounterApp/>', () => {
 
     });
 
-    test('Debe colocar el valor por defecto con el bontn de reset', () => {
+    test('Debe colocar el valor por defecto con el boton de reset', () => {
     
         const value = 100;
         const wrapper = shallow(<CounterApp value={value} />);
