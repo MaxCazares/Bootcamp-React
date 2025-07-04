@@ -1,4 +1,4 @@
-const { getSaludo } = require("../src/bases/02-template-string")
+const { getSaludo } = require("../../src/bases/02-template-string")
 
 describe('pruebas de 02-template-string', () => {
     
