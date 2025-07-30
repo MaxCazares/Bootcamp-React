@@ -17,7 +17,7 @@ const getFactorialNumber = number => {
 export const FirstApp = ({title = 'React', factorial = 1}) => {
     return (
     <Fragment>
-        <h2>{title}'s First App</h2>
+        <h2 data-testid='test-title'> {title}'s First App</h2>
         <code>{JSON.stringify(person)}</code>
         <p>{getFactorialNumber(factorial)}</p>
     </Fragment>

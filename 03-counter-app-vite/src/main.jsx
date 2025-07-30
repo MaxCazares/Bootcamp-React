@@ -10,8 +10,8 @@ import {CounterApp} from './CounterApp.jsx'
 
 ReactDOM.createRoot((document.getElementById('root'))).render(
     <React.StrictMode>
-        {/* <App/>
-        <FirstApp title="Max" factorial={10}/> */}
+        {/* <App/> */}
+        {/* <FirstApp title="Max" factorial={10}/> */}
         <CounterApp value={123}/>
     </React.StrictMode>
 )

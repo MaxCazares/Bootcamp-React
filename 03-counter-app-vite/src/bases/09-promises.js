@@ -9,6 +9,6 @@ export const getHeroesByIdAsync = id => {
             }else{
                 reject('iudaaaa, no se encontro el heroe');
             }
-        }, 1500);
+        }, 1000);
     });
 };
