@@ -6,7 +6,7 @@ export const AddCategory = ({onNewCategory}) => {
 
     const onInputChange = ({target}) => setInputValue(target.value) 
 
-    const onSubmit = event => {
+    const onSubmit = event => {        
         event.preventDefault()
 
         const newCategory = inputValue.trim()
@@ -17,7 +17,7 @@ export const AddCategory = ({onNewCategory}) => {
     }
 
     return(
-        <form onSubmit={onSubmit} className="flex justify-center mt-8">
+        <form aria-label="form" onSubmit={onSubmit} className="flex justify-center mt-8">
             <input  
                 className="w-11/12 max-w-2xl bg-purple-300 text-white placeholder-white rounded-lg px-4 py-2 shadow-md focus:outline-none focus:ring-2 focus:ring-purple-300 transition-all duration-200"
                 type="text" 
