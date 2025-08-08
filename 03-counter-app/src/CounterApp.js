@@ -12,7 +12,7 @@ const CounterApp = ({ value }) => {
 
     const deincrementarValue = () => setCounter(counter - 1);
 
-    const resetValue = () => setCounter(value);
+    const resetValue = () => setCounter(start);
 
     return (
         <Fragment>
