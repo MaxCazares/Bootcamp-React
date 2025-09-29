@@ -5,7 +5,8 @@ import './style.css'
 // import './bases/04-arrays'
 // import './bases/05-functions'
 // import './bases/06-obj-destructuring'
-import './bases/10-fetch-api'
+// import './bases/10-fetch-api'
+import './bases/11-async-await'
 
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
