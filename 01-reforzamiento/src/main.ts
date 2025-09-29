@@ -1,4 +1,4 @@
-import './style.css'
+import "./style.css";
 // import './bases/01-const-let'
 // import './bases/02-template-string'
 // import './bases/03-object-literal'
@@ -9,8 +9,11 @@ import './style.css'
 import './bases/11-async-await'
 
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
     <h1>Hola Mundo<h1/>
   </div>
-`
+`;
+
+// console.log(getHeroesByOwner(Owner.DC));
+// console.log(getHeroesByOwner(Owner.Marvel));
