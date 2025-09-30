@@ -1,35 +1,40 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import styles from './ItemCounter.module.css'
+import styles from './ItemCounter.module.css';
 
 interface Props {
-    product_name: string;
-    quantity?: number;
+	product_name: string;
+	quantity?: number;
 }
 
 export const ItemCounter = ({ product_name, quantity = 1 }: Props) => {
+	const [itemCounter, setItemCounter] = useState(quantity);
 
-    const [itemCounter, setItemCounter] = useState(quantity)
+	const addProduct = () => {
+		setItemCounter(itemCounter + 1);
+	};
+	const substractProduct = () => {
+		if (itemCounter > 0) setItemCounter(itemCounter - 1);
+	};
 
-    const addProduct = () => {
-        setItemCounter(itemCounter + 1)
-    }
-    const substractProduct = () => {
-        if (itemCounter !== 0)
-            setItemCounter(itemCounter - 1)
-    }
+	return (
+		<div className={styles['item-row']}>
+			<h3
+				data-testid='product_title'
+				style={{
+					color: itemCounter === 1 ? 'red' : 'blue',
+				}}
+			>
+				{product_name}
+			</h3>
 
-    return (
-        <div className={styles['item-row']}>
-            <h3>{product_name}</h3>
+			<div className={styles.itemButtons}>
+				<button onClick={addProduct}>+1</button>
 
-            <div className={styles.itemButtons}>
-                <button onClick={addProduct}>+1</button>
+				<p>{itemCounter}</p>
 
-                <p>{itemCounter}</p>
-
-                <button onClick={substractProduct}>-1</button>
-            </div>
-        </div>
-    )
+				<button onClick={substractProduct}>-1</button>
+			</div>
+		</div>
+	);
 };
