@@ -4,7 +4,7 @@ import './css/index.css'
 
 
 import { FormWithCustomHook } from './02-useEffect/FormWithCustomHook'
-import { MultipleCustomHooks } from './03-examples/MultipleCustomHooks'
+// import { MultipleCustomHooks } from './03-examples/MultipleCustomHooks'
 // import { SimpleForm } from './02-useEffect/SimpleForm'
 // import { CounterApp } from './01-useState/CounterApp'
 // import { CounterWithCusotmHook } from './01-useState/CounterWithCusotmHook'
@@ -15,7 +15,7 @@ createRoot(document.getElementById('root')).render(
 		// <CounterApp/>
 		// <CounterWithCusotmHook/>
 		// <SimpleForm/>
-		// <FormWithCustomHook />
-		<MultipleCustomHooks/>
+		<FormWithCustomHook />
+		// <MultipleCustomHooks/>
 	// </StrictMode> 
 )

@@ -11,6 +11,8 @@ export const useForm = (initialState = {}) => {
             ...formState,
             [name]: value
         })      
+        console.log(formState);
+        
     }
 
     const onResetForm = () => {
